@@ -92,6 +92,10 @@ ORDER BY client.name;
 
 -- using 'case' and joining 3 tables to view payment status
 SELECT freelancerreceived.money, listofjobpost.filepath, freelancer.name, 
-(CASE WHEN freelancerreceived.money >= 5000 then 'High' ELSE 'Low' END) AS paymentstatus
+(CASE	WHEN freelancerreceived.money >= 5000 
+		then 'High' 
+		ELSE 'Low' 
+		END
+) AS paymentstatus
 FROM freelancerreceived JOIN listofjobpost ON freelancerreceived.lid = listofjobpost.id
 JOIN freelancer ON listofjobpost.fid = freelancer.id;
